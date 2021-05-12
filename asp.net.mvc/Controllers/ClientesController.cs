@@ -9,10 +9,42 @@ namespace asp.net.mvc.Controllers
 {
     public class ClientesController : Controller
     {
+        public static List<Clientes> emList = new List<Clientes>
+        {
+            new Clientes
+            {
+                ID = 1,
+                Nombre = "Hugo",
+                FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
+                Edad = 10,
+            },
+            new Clientes
+            {
+                ID = 2,
+                Nombre = "Paco",
+                FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
+                Edad = 11,
+            },
+             new Clientes
+             {
+                ID = 3,
+                Nombre = "Luis",
+                FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
+                Edad = 12,
+            },
+            new Clientes
+            {
+                ID = 4,
+                Nombre = "Tio Rico",
+                FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
+                Edad = 30,
+            }
+        };
+
         // GET: Clientes
         public ActionResult Index()
         {
-            var clientes = from e in TodosLosCientes()
+            var clientes = from e in emList
                            orderby e.ID
                            select e;
             return View(clientes);
@@ -46,21 +78,28 @@ namespace asp.net.mvc.Controllers
             }
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Clientes/Edit/5 *** Se usa para gargar la informacion y poder ser editada
         public ActionResult Edit(int id)
         {
-            return View();
+            var empList = TodosLosCientes();
+            var clientes = empList.Single(m => m.ID == id);
+
+            return View(clientes);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Clientes/Edit/5 *** Se usa para poder tomar toda la informacion y guardar en el modelo, despues llama a mostra la info
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                var clientes = emList.Single(m => m.ID == id);
+                if (TryUpdateModel(clientes))
+                {
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                return View(clientes);
             }
             catch
             {
@@ -95,23 +134,33 @@ namespace asp.net.mvc.Controllers
         {
             return new List<Clientes>()
             {
-                new Clientes{
+                new Clientes
+                {
                     ID = 1,
                     Nombre = "Hugo",
                     FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
-                    Edad = 30,
+                    Edad = 10,
                 },
-                new Clientes{
+                new Clientes
+                {
                     ID = 2,
                     Nombre = "Paco",
                     FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
-                    Edad = 35,
+                    Edad = 11,
                 },
-                new Clientes{
+                 new Clientes
+                 {
                     ID = 3,
                     Nombre = "Luis",
                     FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
-                    Edad = 40,
+                    Edad = 12,
+                },
+                new Clientes
+                {
+                    ID = 4,
+                    Nombre = "Tio Rico",
+                    FechaAlta = DateTime.Parse(DateTime.Today.ToString()),
+                    Edad = 30,
                 }
             };
         }
