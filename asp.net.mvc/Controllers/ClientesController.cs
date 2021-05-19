@@ -64,12 +64,12 @@ namespace asp.net.mvc.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Clientes emp)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                emList.Add(emp);
                 return RedirectToAction("Index");
             }
             catch
