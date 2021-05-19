@@ -69,6 +69,14 @@ namespace asp.net.mvc.Controllers
             try
             {
                 // TODO: Add insert logic here
+                Clientes emp = new Clientes();
+                emp.Nombre = collection["nombre"];
+                DateTime jDate;
+                DateTime.TryParse(collection["FechaAlta"],out jDate);
+                emp.FechaAlta = jDate;
+                string edad = collection["edad"];
+                emp.Edad = Int32.Parse(edad);
+                emList.Add(emp);
 
                 return RedirectToAction("Index");
             }
