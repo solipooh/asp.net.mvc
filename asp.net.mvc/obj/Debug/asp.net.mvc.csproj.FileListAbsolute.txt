@@ -76,3 +76,7 @@ C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\obj\Debug
 C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\obj\Debug\asp.net.mvc.csproj.CopyComplete
 C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\obj\Debug\asp.net.mvc.dll
 C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\obj\Debug\asp.net.mvc.pdb
+C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\bin\EntityFramework.dll
+C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\bin\EntityFramework.SqlServer.dll
+C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\bin\EntityFramework.xml
+C:\Users\liccr\Documents\Workspace\ASP_NET_MVC\asp.net.mvc\asp.net.mvc\bin\EntityFramework.SqlServer.xml

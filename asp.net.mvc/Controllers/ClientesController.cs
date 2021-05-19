@@ -41,10 +41,12 @@ namespace asp.net.mvc.Controllers
             }
         };
 
+        private EmpDBContext db = new EmpDBContext();
+
         // GET: Clientes
         public ActionResult Index()
         {
-            var clientes = from e in emList
+            var clientes = from e in db.Clientes
                            orderby e.ID
                            select e;
             return View(clientes);
@@ -69,7 +71,8 @@ namespace asp.net.mvc.Controllers
             try
             {
                 // TODO: Add insert logic here
-                emList.Add(emp);
+                db.Clientes.Add(emp);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -78,12 +81,10 @@ namespace asp.net.mvc.Controllers
             }
         }
 
-        // GET: Clientes/Edit/5 *** Se usa para gargar la informacion y poder ser editada
+        // GET: Clientes/Edit/5 *** Se usa para cargar la informacion y poder ser editada
         public ActionResult Edit(int id)
         {
-            var empList = TodosLosCientes();
-            var clientes = empList.Single(m => m.ID == id);
-
+            var clientes = db.Clientes.Single(m => m.ID == id);
             return View(clientes);
         }
 
@@ -93,9 +94,10 @@ namespace asp.net.mvc.Controllers
         {
             try
             {
-                var clientes = emList.Single(m => m.ID == id);
+                var clientes = db.Clientes.Single(m => m.ID == id);
                 if (TryUpdateModel(clientes))
                 {
+                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 

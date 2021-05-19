@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace asp.net.mvc.Models
 {
@@ -15,4 +16,13 @@ namespace asp.net.mvc.Models
         
         public int Edad { get; set; }
     }
+
+    public class EmpDBContext : DbContext
+    {
+        public EmpDBContext()
+        { }
+
+        public DbSet<Clientes> Clientes { get; set; }
+    }
+
 }
