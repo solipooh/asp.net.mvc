@@ -113,6 +113,7 @@
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
+    <None Include="Properties\PublishProfiles\MVC-MSI - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
